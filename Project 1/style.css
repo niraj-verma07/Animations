@@ -11,6 +11,10 @@ body {
   width: 100%;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 section {
   height: 100%;
   width: 100%;
@@ -20,7 +24,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 28px 35px;
+  padding: 20px 30px;
 }
 
 .part2 {
@@ -58,7 +62,7 @@ nav button {
   height: 80%;
   width: 100%;
   display: flex;
-  padding: 28px 35px;
+  padding: 20px 35px;
 }
 
 .center-part1 {
@@ -100,7 +104,7 @@ nav button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 30px;
+  padding: 0 30px;
 }
 
 .section1bottom img {
@@ -121,12 +125,12 @@ nav button {
   font-weight: 500;
   padding: 3px 10px 3px 10px;
   border-radius: 5px;
-  font-size: 28px;
+  font-size: 35px;
 }
 
 .services p {
   width: 40%;
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -222,3 +226,71 @@ nav button {
   object-fit: cover;
   margin-top: 50px;
 }
+
+.section3 {
+  background-color: rgb(222, 219, 219);
+  border-radius: 20px;
+  height: 35%;
+  width: 96%;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 45px;
+  margin: 80px 25px;
+}
+
+.section3 .textContainer {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.section3 h3 {
+  font-size: 35px;
+}
+
+.section3 p {
+  font-size: 18px;
+}
+
+.section3 button {
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+  border: none;
+  width: fit-content;
+}
+
+.section3 img {
+  height: 200px;
+  margin-right: 80px;
+}
+
+.section4{
+  height: 20%;
+}
+.section4 .services {
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.services h3 {
+  background-color: #97ff67;
+  font-weight: 500;
+  padding: 3px 10px 3px 10px;
+  border-radius: 5px;
+  font-size: 38px;
+}
+
+.services p {
+  width: 40%;
+  font-size: 20px;
+  font-weight: 500;
+}
+
