@@ -1,9 +1,70 @@
-import React from 'react'
+import { useGSAP } from "@gsap/react"; //npm install @gsap/react
+import gsap from "gsap"; //npm install gsap
+import { useRef } from "react";
 
 const App = () => {
-  return (
-    <div>App</div>
-  )
-}
+  //Normal Animation without useRef()
+  // useGSAP(() => { //Gsap hook to use gsap
+  //   gsap.to(".box", {
+  //     x: 500,
+  //     duration: 1,
+  //     delay: 0.5,
+  //     rotate: 360,
+  //     borderRadius: "50%",
+  //   });
+  // });
 
-export default App
+  // const gsapRef = useRef()
+
+  // useGSAP(()=>{
+  //   gsap.to(gsapRef.current, {
+  //     x : 1000,
+  //     duration : 2,
+  //     delay : 1,
+  //     rotate : 720
+  //   })
+  // })
+
+  // const boxRef = useRef(); //useRef ka use humlog karte hai taki hum koi specific element me animation laga skte hai joki simple useGsap use karne se sare element me apply ho jata hai jisko jisko same class mila ho
+
+  // useGSAP(() => {
+  //   gsap.to(boxRef.current, {
+  //     rotate: 360,
+  //     delay: 1,
+  //     duration: 2,
+  //   });
+  // });
+
+  useGSAP(
+    () => {
+      gsap.from(".box", {
+        rotate: 360,
+        scale: 0,
+        duration: 1,
+        opacity: 0,
+        delay: 0.5,
+      });
+    },
+    { scope: ".container" }
+    //isse wahi element animate hoga to container class me hoga aha pe hum useRef() bhi use kar skate hai
+  );
+
+  return (
+    <main>
+      {/* <div ref={gsapRef} className="box"></div> */}
+
+      <div className="container">
+        <div className="circle"></div>
+        {/* <div ref={boxRef} className="box"></div> */}
+        <div className="box"></div>
+      </div>
+
+      <div className="container2">
+        <div className="circle"></div>
+        <div className="box"></div>
+      </div>
+    </main>
+  );
+};
+
+export default App;
