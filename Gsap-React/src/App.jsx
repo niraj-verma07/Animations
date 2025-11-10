@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react"; //npm install @gsap/react
 import gsap from "gsap"; //npm install gsap
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const App = () => {
   //Normal Animation without useRef()
@@ -35,34 +35,54 @@ const App = () => {
   //   });
   // });
 
-  useGSAP(
-    () => {
-      gsap.from(".box", {
-        rotate: 360,
-        scale: 0,
-        duration: 1,
-        opacity: 0,
-        delay: 0.5,
-      });
-    },
-    { scope: ".container" }
-    //isse wahi element animate hoga to container class me hoga aha pe hum useRef() bhi use kar skate hai
-  );
+  // useGSAP(
+  //   () => {
+  //     gsap.from(".box", {
+  //       rotate: 360,
+  //       scale: 0,
+  //       duration: 1,
+  //       opacity: 0,
+  //       delay: 0.5,
+  //     });
+  //   },
+  //   { scope: ".container" }
+  //   //isse wahi element animate hoga to container class me hoga aha pe hum useRef() bhi use kar skate hai
+  // );
+
+  const [circle, setCircle] = useState(0);
+
+  const random = gsap.utils.random(-500, 500, 100);
+
+  useGSAP(() => {
+    gsap.to(".circle", {
+      x: circle,
+      duration: 0.5,
+    });
+  }, [circle]);
 
   return (
     <main>
       {/* <div ref={gsapRef} className="box"></div> */}
 
-      <div className="container">
-        <div className="circle"></div>
-        {/* <div ref={boxRef} className="box"></div> */}
-        <div className="box"></div>
-      </div>
+      {/* <div className="container">
+        <div className="circle"></div> */}
+      {/* <div ref={boxRef} className="box"></div> */}
+      {/* <div className="box"></div>
+      </div> */}
 
-      <div className="container2">
+      {/* <div className="container2">
         <div className="circle"></div>
         <div className="box"></div>
-      </div>
+      </div> */}
+
+      <button
+        onClick={() => {
+          setCircle(random);
+        }}
+      >
+        Animate
+      </button>
+      <div className="circle"></div>
     </main>
   );
 };
