@@ -33,11 +33,11 @@ main {
   padding: 20px;
   border: 3px solid white;
   border-radius: 10px;
-}
+} */
 
-.box {
-  height: 160px;
-  width: 160px;
+/* .box {
+  height: 200px;
+  width: 200px;
   background: linear-gradient(to right bottom, rgb(248, 66, 103), crimson);
   border-radius: 10px;
   margin: 15px;
@@ -63,4 +63,21 @@ button {
 
 button:active {
   scale: 0.96;
+}
+
+img {
+  height: 190px;
+}
+
+.box {
+  height: 200px;
+  width: 200px;
+  background: linear-gradient(to right bottom, rgb(248, 66, 103), crimson);
+  border-radius: 10px;
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 600;
 }

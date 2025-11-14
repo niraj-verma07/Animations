@@ -49,16 +49,38 @@ const App = () => {
   //   //isse wahi element animate hoga to container class me hoga aha pe hum useRef() bhi use kar skate hai
   // );
 
-  const [circle, setCircle] = useState(0);
+  // const [circle, setCircle] = useState(0);
 
-  const random = gsap.utils.random(-500, 500, 100);
+  // const random = gsap.utils.random(-500, 500, 100); //random values in gsap
 
-  useGSAP(() => {
-    gsap.to(".circle", {
-      x: circle,
-      duration: 0.5,
-    });
-  }, [circle]);
+  // useGSAP(() => {
+  //   gsap.to(".circle", {
+  //     x: circle,
+  //     duration: 0.5,
+  //   });
+  // }, [circle]);
+
+  const randomX = gsap.utils.random(-500, 500, 100);
+  const rotateX = gsap.utils.random(-360, 360, 30);
+  const randomY = gsap.utils.random(-200, 200, 30);
+
+  const [xValue, setXValue] = useState(0);
+  const [yValue, setYValue] = useState(0);
+  const [roti, setRoti] = useState(0);
+
+  const imageRef = useRef();
+
+  useGSAP(
+    () => {
+      gsap.to(imageRef.current, {
+        x: xValue,
+        y: yValue,
+        rotate: roti,
+        duration: 1,
+      });
+    },
+    { scope: "main", dependencies: [xValue, yValue, roti] }
+  );
 
   return (
     <main>
@@ -75,14 +97,30 @@ const App = () => {
         <div className="box"></div>
       </div> */}
 
-      <button
+      {/* <button
         onClick={() => {
           setCircle(random);
         }}
       >
         Animate
       </button>
-      <div className="circle"></div>
+      <div className="circle"></div> */}
+
+      <button
+        onClick={() => {
+          setXValue(randomX);
+          setRoti(rotateX);
+          setYValue(randomY);
+        }}
+      >
+        Animate
+      </button>
+      <img
+        ref={imageRef}
+        src="https://png.pngtree.com/png-clipart/20230411/original/pngtree-cute-yellow-bee-cartoon-illustration-png-image_9043912.png"
+        alt=""
+      />
+      {/* <div ref={imageRef} className="box"></div> */}
     </main>
   );
 };
